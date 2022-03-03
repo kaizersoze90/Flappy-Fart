@@ -78,8 +78,4 @@ public class BirdControl : MonoBehaviour
             _gControl.EndGame();
         }
     }
-    public void StartAgain()
-    {
-
-    }
 }
