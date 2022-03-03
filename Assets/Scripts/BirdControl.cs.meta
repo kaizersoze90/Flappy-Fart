@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 6c4559a280f91794cb4794508b7e50a0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _fartEffect: {fileID: 3361440754624556020, guid: 036c908845684814ebbde70a6020f497, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
