@@ -24,6 +24,12 @@ public class GameControl : MonoBehaviour
     {
         SceneManager.LoadScene("Game Scene");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void EndGame()
     {
         PlayerPrefs.SetInt("lastScore", _score);

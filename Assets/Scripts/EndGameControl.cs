@@ -13,7 +13,7 @@ public class EndGameControl : MonoBehaviour
     void Start()
     {
         GetComponent<AudioSource>().PlayOneShot(_endSound, 1f);
-        _lastScoreText.text = "Score: " + PlayerPrefs.GetInt("lastScore");
+        _lastScoreText.text = "SCORE: " + PlayerPrefs.GetInt("lastScore");
     }
 
     // Update is called once per frame

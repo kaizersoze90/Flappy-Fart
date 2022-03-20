@@ -32,15 +32,25 @@ public class BirdControl : MonoBehaviour
                 Touch touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Began)
                 {
-                    _rg.velocity = Vector3.up * _force;
-                    GameObject goFart = Instantiate(_fartEffect, transform.position, transform.rotation) as GameObject;
-                    goFart.GetComponent<Rigidbody2D>().velocity = Vector2.left;
-                    _aSource.PlayOneShot(_fartSounds[Random.Range(0, 3)], 1f);
-                    Destroy(goFart.gameObject, 1.333f);
+                    MoveBird();
                 }
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                MoveBird();
             }
         }
     }
+
+    void MoveBird()
+    {
+        _rg.velocity = Vector3.up * _force;
+        GameObject goFart = Instantiate(_fartEffect, transform.position, transform.rotation) as GameObject;
+        goFart.GetComponent<Rigidbody2D>().velocity = Vector2.left;
+        _aSource.PlayOneShot(_fartSounds[Random.Range(0, 3)], 1f);
+        Destroy(goFart.gameObject, 1.333f);
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
