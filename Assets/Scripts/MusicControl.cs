@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class MusicControl : MonoBehaviour
 {
-    static bool musicOn;
-    // Start is called before the first frame update
+    public static MusicControl Instance { get; private set; }
+
     void Start()
     {
-        if (!musicOn)
+        MakeSingleton();
+    }
+
+    void MakeSingleton()
+    {
+        if (Instance == null)
         {
-            GameObject.DontDestroyOnLoad(gameObject);
-            musicOn = true;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

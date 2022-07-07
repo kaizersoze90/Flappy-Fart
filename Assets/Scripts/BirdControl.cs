@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class BirdControl : MonoBehaviour
 {
+    [SerializeField] GameObject fartEffect, expEffect, scoreReward, scoreStage;
+    [SerializeField] AudioClip[] fartSounds;
+    [SerializeField] AudioClip yeahSound, stageSound;
+
     Rigidbody2D _rg;
     GameControl _gControl;
     AudioSource _aSource;
 
-    private float _force = 4f;
-    private bool _GameActive = true;
+    float _force = 4f;
+    bool _GameActive = true;
 
-    public GameObject _fartEffect, _expEffect, _scoreReward, _scoreStage;
-    public AudioClip[] _fartSounds;
-    public AudioClip _yeahSound, _stageSound;
-
-    // Start is called before the first frame update
     void Start()
     {
         _rg = GetComponent<Rigidbody2D>();
@@ -45,9 +44,9 @@ public class BirdControl : MonoBehaviour
     void MoveBird()
     {
         _rg.velocity = Vector3.up * _force;
-        GameObject goFart = Instantiate(_fartEffect, transform.position, transform.rotation) as GameObject;
+        GameObject goFart = Instantiate(fartEffect, transform.position, transform.rotation) as GameObject;
         goFart.GetComponent<Rigidbody2D>().velocity = Vector2.left;
-        _aSource.PlayOneShot(_fartSounds[Random.Range(0, 3)], 1f);
+        _aSource.PlayOneShot(fartSounds[Random.Range(0, 3)], 1f);
         Destroy(goFart.gameObject, 1.333f);
     }
 
@@ -60,11 +59,11 @@ public class BirdControl : MonoBehaviour
         }
         else if (other.gameObject.tag == "Reward")
         {
-            _aSource.PlayOneShot(_yeahSound, 0.8f);
+            _aSource.PlayOneShot(yeahSound, 0.8f);
             _gControl.RewardScore();
             Vector3 posReward = other.contacts[0].point;
-            GameObject goExp = Instantiate(_expEffect, posReward, Quaternion.identity) as GameObject;
-            GameObject goReward = Instantiate(_scoreReward, posReward, Quaternion.identity) as GameObject;
+            GameObject goExp = Instantiate(expEffect, posReward, Quaternion.identity) as GameObject;
+            GameObject goReward = Instantiate(scoreReward, posReward, Quaternion.identity) as GameObject;
             Destroy(goReward, 1f);
             Destroy(goExp, 0.5f);
             Destroy(other.gameObject);
@@ -72,9 +71,9 @@ public class BirdControl : MonoBehaviour
         }
         else if (other.gameObject.tag == "Stage")
         {
-            _aSource.PlayOneShot(_stageSound, 1f);
+            _aSource.PlayOneShot(stageSound, 1f);
             Vector3 posStage = other.contacts[0].point;
-            GameObject goStage = Instantiate(_scoreStage, posStage, Quaternion.identity) as GameObject;
+            GameObject goStage = Instantiate(scoreStage, posStage, Quaternion.identity) as GameObject;
             Destroy(goStage, 1f);
             _gControl.RaiseScore();
             Destroy(other.gameObject);

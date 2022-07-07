@@ -1,25 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
-    public Text _scoreText;
-    public int _score;
+    [SerializeField] Text scoreText;
+    [SerializeField] int score;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void StartGame()
     {
         SceneManager.LoadScene("Game Scene");
@@ -32,17 +21,17 @@ public class GameControl : MonoBehaviour
 
     public void EndGame()
     {
-        PlayerPrefs.SetInt("lastScore", _score);
+        PlayerPrefs.SetInt("lastScore", score);
         SceneManager.LoadScene("End Scene");
     }
     public void RaiseScore()
     {
-        _score += 10;
-        _scoreText.text = _score + "";
+        score += 10;
+        scoreText.text = score + "";
     }
     public void RewardScore()
     {
-        _score += 50;
-        _scoreText.text = _score + "";
+        score += 50;
+        scoreText.text = score + "";
     }
 }

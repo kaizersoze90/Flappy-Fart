@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -520,6 +521,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Fart_Explosion_11: 9006973142375666415
+      Fart_Explosion_9: 3929890240400908154
+      Fart_Explosion_4: 2346328328608108022
+      Fart_Explosion_14: -8366262009275895380
+      Fart_Explosion_6: 5525812095866463297
+      Fart_Explosion_10: 1243784084793665151
+      Fart_Explosion_13: 8601283382120884151
+      Fart_Explosion_1: -5349381326323659761
+      Fart_Explosion_7: 6105232565225129004
+      Fart_Explosion_15: 4910019615776664591
+      Fart_Explosion_2: 8837917705591392042
+      Fart_Explosion_3: -5143415605401866744
+      Fart_Explosion_5: -5541993888296424298
+      Fart_Explosion_0: 2727368472101733531
+      Fart_Explosion_8: -9058092393851550326
+      Fart_Explosion_12: -1524338588672076839
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
